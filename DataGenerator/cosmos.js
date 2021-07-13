@@ -1,11 +1,11 @@
 const CosmosClient = require("@azure/cosmos").CosmosClient;
-const { ManagedIdentityCredential } = require("@azure/identity");
 
 const cosmosEndpoint = process.env['CosmosEndPointUrl'];
+const key = process.env['CosmosAuthKey'];
 
 module.exports.cosmosClient = new CosmosClient({
     endpoint: cosmosEndpoint,
-    aadCredentials: new ManagedIdentityCredential('33af02ff-da6c-4f07-b89f-3d952fa5f0a0'),
+    key: key
 });
 
 class CartAction {
